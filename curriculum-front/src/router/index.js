@@ -19,7 +19,7 @@ const routes = [
     component: DisplayCurricula
   },
   {
-    path: "/curriculum",
+    path: "/curricula/:id",
     name: "curriculum",
     component: DisplayCurriculum
   },
