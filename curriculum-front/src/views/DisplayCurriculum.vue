@@ -3,8 +3,8 @@
     <v-col md="6" offset-md="3" sm="8" offset-sm="2">
       <v-row>
         <v-col>
-          <h1>Display Curriculum</h1>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam ipsum aut veritatis pariatur porro excepturi, vel nesciunt rem quas aliquid molestias quos corporis enim atque sit tempora ipsam ut doloremque.</p>
+          <h1>{{selectedCurriculum.name}}</h1>
+          <p>{{selectedCurriculum.description}}.</p>
         </v-col>
       </v-row>
       <v-row>
@@ -145,3 +145,22 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+import { mapState } from "vuex";
+export default {
+  data() {
+    return {
+      selectedCurriculum: {}
+    };
+  },
+  computed: {
+    ...mapState(["curriculaData"])
+  },
+  mounted() {
+    this.selectedCurriculum = this.curriculaData.find(curriculum => {
+      return curriculum.id === this.$route.params.id;
+    });
+  }
+};
+</script>

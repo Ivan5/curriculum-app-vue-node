@@ -13,7 +13,9 @@
           v-for="curriculum in curriculaData"
           :key="curriculum.id"
         >
-          <v-card-title class="headline">{{curriculum.name}}</v-card-title>
+          <v-card-title class="headline">
+            <router-link :to="`/curricula/${curriculum.id}`">{{curriculum.name}}</router-link>
+          </v-card-title>
           <v-card-subtitle>{{curriculum.description}}</v-card-subtitle>
         </v-card>
       </div>
@@ -22,15 +24,15 @@
 </template>
 
 <script>
-import curriculaData from "@/data/curricula.js";
+import { mapState } from "vuex";
 
 export default {
   name: "DisplayCurricula",
   data() {
-    return {
-      display: false,
-      curriculaData
-    };
+    return {};
+  },
+  computed: {
+    ...mapState(["curriculaData"])
   }
 };
 </script>
