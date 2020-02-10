@@ -2,7 +2,8 @@ import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
 import DisplayCurriculum from "../views/DisplayCurriculum.vue";
-import UpsertCurriculum from "../views/UpsertCurriculum.vue";
+import CreateCurriculum from "../views/CreateCurriculum.vue";
+import DisplayCurricula from "../views/DisplayCurricula.vue";
 
 Vue.use(VueRouter);
 
@@ -13,20 +14,19 @@ const routes = [
     component: Home
   },
   {
+    path: "/curricula",
+    name: "curricula",
+    component: DisplayCurricula
+  },
+  {
     path: "/curriculum",
     name: "curriculum",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: DisplayCurriculum
   },
   {
-    path: "/curriculum/upsert",
-    name: "upsert",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: UpsertCurriculum
+    path: "/curricula/create",
+    name: "create",
+    component: CreateCurriculum
   }
 ];
 
