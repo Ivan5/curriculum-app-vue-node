@@ -3,7 +3,7 @@
     <v-col md="6" offset-md="3" sm="8" offset-sm="2">
       <div class="page-header">
         <h1>All Curriculums</h1>
-        <v-btn>Create New</v-btn>
+        <v-btn @click="$router.push('/curricula/create')">Create New</v-btn>
       </div>
 
       <div class="curricula-list">

@@ -87,3 +87,9 @@
     </v-col>
   </v-row>
 </template>
+
+<script>
+export default {
+  name: "CreateCurriculum"
+};
+</script>
