@@ -3,6 +3,6 @@ const router = express.Router();
 
 const curricula = require("./curricula");
 
-router.use("curricula", curricula);
+router.use("/curricula", curricula);
 
 module.exports = router;
