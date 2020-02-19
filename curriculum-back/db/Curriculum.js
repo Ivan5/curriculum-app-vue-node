@@ -11,13 +11,20 @@ const CurriculumSchema = new mongoose.Schema({
   },
   description: {
     type: String
-  }
+  },
+  sections: [
+    {
+      name: {
+        type: String,
+        required: true
+      },
+      resources: [String],
+      projects: [String]
+    }
+  ]
 });
 
 CurriculumSchema.plugin(timestamps);
 const Curriculum = mongoose.model("Curriculum", CurriculumSchema);
-
-//const curriculum = new Curriculum({ name: "Python" });
-//curriculum.save().then(() => console.log("curriculum saved"));
 
 module.exports = Curriculum;

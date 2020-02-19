@@ -1,13 +1,26 @@
 const express = require("express");
+const mongoose = require("mongoose");
+
+const { Curriculum } = require("@db");
+
 const router = express.Router();
 
 router
   .route("/")
-  .get((req, res) => {
-    res.send("Hello Curricula!");
+  .get(async (req, res) => {
+    const curricula = await Curriculum.find();
+    res.send(curricula);
   })
-  .post((req, res) => {
-    res.send("Got a POST request");
+  .post(async (req, res) => {
+    const { name, goal, description, sections } = req.body;
+    const curriculum = new Curriculum({
+      name,
+      goal,
+      description,
+      sections
+    });
+    await curriculum.save();
+    res.send(201, "Success");
   });
 
 router

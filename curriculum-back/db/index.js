@@ -5,3 +5,7 @@ mongoose.connect("mongodb://localhost:27017/curriculum-app", {
 });
 
 const Curriculum = require("./Curriculum");
+
+module.exports = {
+  Curriculum
+};
