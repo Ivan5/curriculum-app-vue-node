@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { mapState } from "vuex";
+import { mapState, mapActions } from "vuex";
 
 export default {
   name: "DisplayCurricula",
@@ -33,6 +33,12 @@ export default {
   },
   computed: {
     ...mapState(["curriculaData"])
+  },
+  methods: {
+    ...mapActions(["getCurricula"])
+  },
+  mounted() {
+    this.getCurricula();
   }
 };
 </script>
