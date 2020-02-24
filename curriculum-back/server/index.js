@@ -1,5 +1,6 @@
 const express = require("express");
 const routes = require("./api");
+const helmet = require("helmet");
 
 require("../db");
 
@@ -8,6 +9,7 @@ const port = 5000;
 
 //middleware
 app.use(express.json());
+app.use(helmet());
 
 app.use("/api/v1", routes);
 

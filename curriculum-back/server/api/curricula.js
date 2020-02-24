@@ -25,8 +25,9 @@ router
 
 router
   .route("/:id")
-  .get((req, res) => {
-    res.send(req.params);
+  .get(async (req, res) => {
+    const curriculum = await Curriculum.findById(req.params.id);
+    res.send(curriculum);
   })
   .patch((req, res) => {
     res.send("Got a POST request");
