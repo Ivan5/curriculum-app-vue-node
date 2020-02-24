@@ -6,5 +6,8 @@ export default {
   async getCurricula({ commit }) {
     const res = await axios.get(API_URL);
     commit("updateCurricula", res.data);
+  },
+  async postCurriculum({ commit }, curriculum) {
+    const res = await axios.post(API_URL, curriculum);
   }
 };

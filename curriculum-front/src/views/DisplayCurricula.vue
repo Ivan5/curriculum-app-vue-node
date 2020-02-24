@@ -10,13 +10,15 @@
         <v-card
           class="curriculum-card"
           outlined
-          v-for="curriculum in curriculaData"
-          :key="curriculum.id"
+          v-for="curriculum in curricula"
+          :key="curriculum._id"
         >
           <v-card-title class="headline">
-            <router-link :to="`/curricula/${curriculum.id}`">{{curriculum.name}}</router-link>
+            <router-link :to="`/curricula/${curriculum._id}`">{{
+              curriculum.name
+            }}</router-link>
           </v-card-title>
-          <v-card-subtitle>{{curriculum.description}}</v-card-subtitle>
+          <v-card-subtitle>{{ curriculum.description }}</v-card-subtitle>
         </v-card>
       </div>
     </v-col>
@@ -32,7 +34,7 @@ export default {
     return {};
   },
   computed: {
-    ...mapState(["curriculaData"])
+    ...mapState(["curricula"])
   },
   methods: {
     ...mapActions(["getCurricula"])
