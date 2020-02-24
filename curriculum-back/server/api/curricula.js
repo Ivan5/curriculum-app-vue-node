@@ -32,8 +32,9 @@ router
   .patch((req, res) => {
     res.send("Got a POST request");
   })
-  .delete((req, res) => {
-    res.send("Got a POST request");
+  .delete(async (req, res) => {
+    await Curriculum.deleteOne({ _id: req.params.id });
+    res.send("Success");
   });
 
 module.exports = router;
