@@ -29,8 +29,12 @@ router
     const curriculum = await Curriculum.findById(req.params.id);
     res.send(curriculum);
   })
-  .patch((req, res) => {
-    res.send("Got a POST request");
+  .patch(async (req, res) => {
+    const curriculum = await Curriculum.updateOne(
+      { _id: req.params.id },
+      { ...req.body }
+    );
+    res.send("Success");
   })
   .delete(async (req, res) => {
     await Curriculum.deleteOne({ _id: req.params.id });
